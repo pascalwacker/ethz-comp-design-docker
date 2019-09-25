@@ -1,15 +1,15 @@
 FROM ubuntu:18.04
 
 # create working directory
-RUN mkdir /home/ocaml
-WORKDIR /home/ocaml
+RUN mkdir /home/compDesign
+WORKDIR /home/compDesign
 
 # install general tools
 RUN apt-get update && apt-get -y install build-essential nano vim emacs git gcc zip unzip make python cmake ca-certificates gnupg wget subversion
 
 # install llvm
 RUN mkdir /llvm && cd /llvm && wget http://releases.llvm.org/9.0.0/llvm-9.0.0.src.tar.xz && tar -xf llvm-9.0.0.src.tar.xz \
-    && mkdir llvm-build && cd llvm-build && cmake -G "Unix Makefiles" ../llvm-9.0.0.src && make -j10 && make install
+    && mkdir llvm-build && cd llvm-build && cmake -G "Unix Makefiles" ../llvm-9.0.0.src && make && make install && rm -rf /llvm
 
 # install ocaml
 RUN apt-get install -y ocaml ocamlbuild menhir

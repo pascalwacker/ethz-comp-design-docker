@@ -5,25 +5,39 @@ Note: This is a unofficial Docker image provided as is. It's built using the ins
 - Docker (https://www.docker.com/)
 
 ## Howto:
-1) Run `docker run pascalwacker/ethz-comp-design-docker:latest` in your terminal of choice
+TLDR: See point `Bringing it all together` and just run that command.
+1) Run `docker run --rm pascalwacker/ethz-comp-design-docker:latest` in your terminal of choice. Congratulation, you have a container containing both `ocaml` as well as `llvm` running. Currently it probably is rather useless for you. So read on.
 
-## Syncing files from your computer to the docker container/saving state:
-- Linux/Mac Run ```docker run -v `pwd`:/home/ocaml pascalwacker/ethz-comp-design-docker:latest```
-- Windows Run `docker run -v %CD%:/home/ocaml pascalwacker/ethz-comp-design-docker:latest` (untested!)  
-
+### Syncing files from your computer to the docker container/saving state:
+- Linux/Mac Run ```docker run --rm -v `pwd`:/home/compDesign pascalwacker/ethz-comp-design-docker:latest```
+- Windows Run `docker run --rm -v %CD%:/home/compDesign pascalwacker/ethz-comp-design-docker:latest` (untested!)  
 Note: You could also create a volume to save the state of the files instead of linking them directly. However to use an IDE on your computer it's recommended to sync the files
+
+### Accessing the console
+- `docker run --rm -it pascalwacker/ethz-comp-design-docker:latest /bin/bash`
+You should now have a container with `ocaml` and `llvm` running as well as command line access to it. However the syncing of files is gone. Let's get that back!  
+Note: You could also run the container and use `docker exec` to access it, but that would require running `docker ps` first, grabing the uid and so on. Observing the KISS principle we won't do that.
+
+### Bringing it all together
+It'll be just one simple command. Trust me!
+- Linux/Mac Run ```docker run --rm -v `pwd`:/home/compDesign -it pascalwacker/ethz-comp-design-docker:latest /bin/bash```
+- Windows Run `docker run --rm -v %CD%:/home/compDesign -it pascalwacker/ethz-comp-design-docker:latest /bin/bash` (untested!)  
+That wasn't to hard, was it? You now have a container running with `ocaml` and `llvm` inside, you're on the commandline inside that container and your local folder (the folder your local terminal was in) is also synced to the container. Awesome, isn't it?
+
+### Updating the container
+It might be, that during the course the need for additional tools inside the container arises. If so I'll update the container. To get this update, simply run `docker pull pascalwacker/ethz-comp-design-docker:latest`. If this didn't solve your problem, let me know, by creating an issue on GitHub (https://github.com/pascalwacker/ethz-comp-design-docker/issues).
 
 ## Build it localy
 1) Clone (or download) this repo
 2) Run `docker build -t what-ever-name-you-would-like .`
 3) Run `docker run what-ever-name-you-would-like` (optionally with syncing as described above `-v ...`)
 
-## Access Container
-
-
-## Note
+### Note
 - You can change `what-ever-name-you-would-like` in the self built docker to what ever you like, just don't use white spaces or fancy special characters and use the same name for line 3 and 4!
 - You can of course also map your loacal folder (saving state), to your self built image
+
+## Contributing
+If you want to help, feel free! Fork the repo, make your changes and create a pull request. You can find all neccessary files in this repo: https://github.com/pascalwacker/ethz-comp-design-docker. It's also the fastest way to fix any typos you find ;)
 
 ## Disclaimer:
 This software is provided as is. The are not responsible for any damages on your system or legal actions brought forward against you.
