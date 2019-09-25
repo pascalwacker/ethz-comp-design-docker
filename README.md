@@ -1,8 +1,8 @@
 # (Unofficial) Docker for ETH Compiler Design (Fall 2019)
-Note: This is a unofficial Docker image provided as is. It's built using the instruction about the tool chain (https://moodle-app2.let.ethz.ch/mod/page/view.php?id=378843).
+Note: This is a unofficial Docker image provided as is. It's built using the instruction provided by the [tool chain](https://moodle-app2.let.ethz.ch/mod/page/view.php?id=378843).
 
 ## Requirements:
-- Docker (https://www.docker.com/)
+- [Docker](https://www.docker.com/)
 
 ## Howto:
 TLDR: See point `Bringing it all together` and just run that command.
@@ -25,19 +25,19 @@ It'll be just one simple command. Trust me!
 That wasn't to hard, was it? You now have a container running with `ocaml` and `llvm` inside, you're on the commandline inside that container and your local folder (the folder your local terminal was in) is also synced to the container. Awesome, isn't it?
 
 ### Updating the container
-It might be, that during the course the need for additional tools inside the container arises. If so I'll update the container. To get this update, simply run `docker pull pascalwacker/ethz-comp-design-docker:latest`. If this didn't solve your problem, let me know, by creating an issue on GitHub (https://github.com/pascalwacker/ethz-comp-design-docker/issues).
+It might be, that during the course the need for additional tools inside the container arises. If so I'll update the container. To get this update, simply run `docker pull pascalwacker/ethz-comp-design-docker:latest`. If this didn't solve your problem, let me know, by creating an issue on [GitHub](https://github.com/pascalwacker/ethz-comp-design-docker/issues).
 
 ## Build it localy
 1) Clone (or download) this repo
 2) Run `docker build -t what-ever-name-you-would-like .`
-3) Run `docker run what-ever-name-you-would-like` (optionally with syncing as described above `-v ...`)
+3) Run `docker run what-ever-name-you-would-like` (optionally with syncing as described above, you know the part about: `-v ...`)
 
 ### Note
 - You can change `what-ever-name-you-would-like` in the self built docker to what ever you like, just don't use white spaces or fancy special characters and use the same name for line 3 and 4!
 - You can of course also map your loacal folder (saving state), to your self built image
 
 ## Contributing
-If you want to help, feel free! Fork the repo, make your changes and create a pull request. You can find all neccessary files in this repo: https://github.com/pascalwacker/ethz-comp-design-docker. It's also the fastest way to fix any typos you find ;)
+If you want to help, feel free! Fork the repo, make your changes and create a pull request. You can find all neccessary files in [this repo](https://github.com/pascalwacker/ethz-comp-design-docker). It's also the fastest way to fix any typos you find ;)
 
 ## Disclaimer:
 This software is provided as is. The are not responsible for any damages on your system or legal actions brought forward against you.
