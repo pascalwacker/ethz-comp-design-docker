@@ -26,7 +26,9 @@ That wasn't to hard, was it? You now have a container running with `ocaml` and `
 
 ### Automate your testing
 I've updated the container on the 27th of September 2019 to include a program called [entr](http://eradman.com/entrproject/). It can be used to run commands if something changes. Ex. for `hw1`, assuming the files are in the current folder in the container, you can use `ls hellocaml.ml providedtests.ml | entr -s 'make && make test'`. If it's in a subfolder, let's say `hw1`, you could run `cd hw1 && ls hellocaml.ml providedtests.ml | entr -s 'make && make test'` (replace `hw1` with whatever you folder is called ;)).  
-The syntac for the `entr` stuff is: `ls <all files you want to watch, divided by spaces> | entr -s '<commands you want to run on change>'`. If you first want to switch to a specific folder, you can use: `cd /home/compDesign/<path> && ls <all files you want to watch, divided by spaces> | entr -s '<commands you want to run on change>'`
+  
+The syntax for the `entr` stuff is: `ls <all files you want to watch, divided by spaces> | entr -s '<commands you want to run on change>'`.  
+If you first want to switch to a specific folder, you can use: `cd /home/compDesign/<path> && ls <all files you want to watch, divided by spaces> | entr -s '<commands you want to run on change>'`
 
 ### Updating the container
 It might be, that during the course the need for additional tools inside the container arises. If so I'll update the container. To get this update, simply run `docker pull pascalwacker/ethz-comp-design-docker:latest`. If this didn't solve your problem, let me know, by creating an issue on [GitHub](https://github.com/pascalwacker/ethz-comp-design-docker/issues).
