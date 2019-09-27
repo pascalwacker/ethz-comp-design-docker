@@ -39,7 +39,7 @@ If you're using a subfolder, let's say `hw1`, use: ```docker run --rm -v `pwd`:/
 It might be, that during the course the need for additional tools inside the container arises. If so I'll update the container. To get this update, simply run `docker pull pascalwacker/ethz-comp-design-docker:latest`. If this didn't solve your problem, let me know, by creating an issue on [GitHub](https://github.com/pascalwacker/ethz-comp-design-docker/issues).
 
 ### Debugging and known errors
-If there's a permission problem with `main.native`, just delete it and run a `make clear` as well as `make`. If you want it as single command: `rm main.native; make clear; make`.
+If there's a permission problem with `main.native`, just delete it and run a `make clean` as well as `make`. If you want it as single command: `rm main.native; make clean; make`.
 
 ## Build it localy
 1) Clone (or download) this repo
