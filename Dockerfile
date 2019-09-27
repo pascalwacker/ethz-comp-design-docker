@@ -15,7 +15,7 @@ RUN mkdir /llvm && cd /llvm && wget http://releases.llvm.org/9.0.0/llvm-9.0.0.sr
 RUN apt-get update && apt-get install -y ocaml ocamlbuild menhir --no-install-recommends && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
 # install additional tools
-RUN apt-get update && apt-get -y install nano vim emacs git subversion --no-install-recommends && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+RUN apt-get update && apt-get -y install nano vim emacs git subversion entr --no-install-recommends && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 # if you need additional tools, either create an image, inhereting from this one at `pascalwacker/ethz-comp-design-docker` or enter your commands below this line!
 
 # create working directory
