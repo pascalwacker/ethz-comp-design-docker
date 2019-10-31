@@ -14,7 +14,9 @@ RUN mkdir /llvm && cd /llvm && wget http://releases.llvm.org/9.0.0/llvm-9.0.0.sr
 
 # install ocaml
 RUN apt-get update && apt-get install -y curl build-essential m4 zlib1g-dev libssl-dev ocaml ocaml-native-compilers opam && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
-RUN opam init -ay && opam install -y ocamlbuild && opam install -y menhir
+RUN opam init -ay && opam install -y ocamlbuild menhir
+
+ENV PATH="/root/.opam/system/bin:${PATH}"
 
 # install additional tools
 RUN apt-get update && apt-get -y install nano vim emacs git subversion entr --no-install-recommends && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
